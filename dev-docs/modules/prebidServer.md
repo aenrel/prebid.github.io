@@ -111,6 +111,10 @@ Additional options for `s2sConfig` may be enabled by including the [Server-to-Se
 
 * Setting `extPrebid.origreferrer` will be recognized by some server-side adapters as the referring URL for the current page.
 
+**Emitting SeatNonBid Data**
+
+* Prebid Server can be instructed to return additional [SeatNonBid](/prebid-server/endpoints/openrtb2/pbs-endpoint-auction.html#seat-non-bid) information about why bidders might not have bid on certain adunits. You can get this extra information by setting `extPrebid.returnallbidstatus` equal to `true`. Note that client-side analytics adapters can receive this data by listening to the `seatNonBid` event.
+
 ## Bid Params
 
 Bid params are sourced from the adapter configurations set for client side. These do not need to change for Prebid Server.
@@ -238,7 +242,7 @@ pbjs.addAdUnits([{
 ### Stored responses
 
 For debugging purposes, it can be useful to have a page that retrieves a static value rather than running an actual auction.
-For this you can use PBS [stored responses](/prebid-server/endpoints/openrtb2/pbs-endpoint-auction.html#stored-responses-pbs-java-only).
+For this you can use PBS [stored responses](/prebid-server/endpoints/openrtb2/pbs-endpoint-auction.html#stored-responses).
 Here's an example:
 
 ```javascript
